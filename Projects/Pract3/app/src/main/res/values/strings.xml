@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pract3</string>
+
+    <string name="text_main">Text</string>
+    <string name="button_main_next">Tap me</string>
+    <string name="edit_main_firstName">First name</string>
+    <string name="edit_main_secondName">Second name</string>
+    <string name="edit_main_thirdName">Third name</string>
+
+    <string name="button_second_back">Back</string>
+</resources>
