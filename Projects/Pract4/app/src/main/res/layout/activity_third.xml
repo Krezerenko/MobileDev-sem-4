@@ -15,7 +15,8 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:ems="10"
-            android:hint="Date" />
+            android:hint="Date"
+            android:inputType="date"/>
 
     <EditText
             android:id="@+id/edit_third_time"
@@ -23,7 +24,8 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:ems="10"
-            android:hint="Time" />
+            android:hint="Time"
+            android:inputType="time"/>
 
     <EditText
             android:id="@+id/edit_third_comment"
@@ -31,7 +33,8 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:ems="10"
-            android:hint="Comment" />
+            android:hint="Comment"
+            android:inputType="text"/>
 
     <Button
             android:id="@+id/button_third_ok"
