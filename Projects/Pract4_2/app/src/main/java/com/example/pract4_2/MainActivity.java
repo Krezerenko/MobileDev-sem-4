@@ -1,12 +1,16 @@
 package com.example.pract4_2;
 
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -24,8 +28,25 @@ public class MainActivity extends AppCompatActivity
             return insets;
         });
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.frame_main_fragment2, Fragment2.class, null)
+        Button buttonFragment1 = findViewById(R.id.button_main_fragment1);
+        Button buttonFragment2 = findViewById(R.id.button_main_fragment2);
+        Button buttonFragment3 = findViewById(R.id.button_main_fragment3);
+
+        buttonFragment1.setOnClickListener(v -> replaceFragment(new Fragment1()));
+        buttonFragment2.setOnClickListener(v -> replaceFragment(new Fragment2()));
+        buttonFragment3.setOnClickListener(v -> replaceFragment(new Fragment3()));
+
+        if (savedInstanceState == null)
+        {
+            replaceFragment(new Fragment1());
+        }
+    }
+
+    private void replaceFragment(Fragment newFragment)
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer_main, newFragment)
                 .commit();
     }
 }

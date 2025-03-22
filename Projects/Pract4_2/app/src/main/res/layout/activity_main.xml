@@ -9,41 +9,44 @@
         android:gravity="center"
         tools:context=".MainActivity">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Static" />
-
-    <fragment
-            android:id="@+id/fragment_main_fragment1"
+    <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer_main"
             android:name="com.example.pract4_2.Fragment1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingVertical="100dp"
+            android:layout_gravity="center"/>
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:textSize="20dp"
-            android:text="Dynamic with frame layout" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center">
+        <Button
+                android:id="@+id/button_main_fragment1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:text="Fragment1" />
 
-    <FrameLayout
-            android:id="@+id/frame_main_fragment2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <Button
+                android:id="@+id/button_main_fragment2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:text="Fragment2" />
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:textSize="20dp"
-            android:text="Fragment container" />
-
-    <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainer_main_fragment3"
-            android:name="com.example.pract4_2.Fragment3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <Button
+                android:id="@+id/button_main_fragment3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textSize="30sp"
+                android:text="Fragment3" />
+    </LinearLayout>
 
 </LinearLayout>
