@@ -23,5 +23,9 @@ public class MainActivity extends AppCompatActivity
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.frame_main_fragment2, Fragment2.class, null)
+                .commit();
     }
 }
