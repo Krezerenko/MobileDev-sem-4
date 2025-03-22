@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SecondActivity"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TextView
+            android:id="@+id/text_second_firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="First name" />
+
+    <TextView
+            android:id="@+id/text_second_lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:textSize="30sp"
+            android:text="Last name" />
+
+    <EditText
+            android:id="@+id/edit_second_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:ems="10"
+            android:hint="Subject" />
+
+    <Button
+            android:id="@+id/button_second_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp"
+            android:text="Submit" />
+
+    <TextView
+            android:id="@+id/text_second_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textSize="30sp"
+            android:text="Date:" />
+
+    <TextView
+            android:id="@+id/text_second_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="30sp"
+            android:text="Time:" />
+
+</LinearLayout>

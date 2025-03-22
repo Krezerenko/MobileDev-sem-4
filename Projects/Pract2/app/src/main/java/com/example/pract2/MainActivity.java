@@ -30,7 +30,14 @@ public class MainActivity extends AppCompatActivity
         });
 
         Button button = findViewById(R.id.programmedButton);
-        button.setOnClickListener(this::moveToSecondPage);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                moveToSecondPage(v);
+            }
+        });
     }
 
     public void moveToSecondPage(View v)
