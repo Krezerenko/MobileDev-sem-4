@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Pract5</string>
+
+    <string-array name="main_products">
+        <item>Яблоки</item>
+        <item>Апельсины</item>
+        <item>Мандарины</item>
+    </string-array>
+
+    <string-array name="second_apples">
+        <item>Голден</item>
+        <item>Гала</item>
+        <item>Черный принц</item>
+        <item>Карамелька</item>
+        <item>Спартан</item>
+        <item>Фуджи</item>
+    </string-array>
+
+    <string-array name="second_oranges">
+        <item>Гамлин</item>
+        <item>Верна</item>
+        <item>Салустиана</item>
+        <item>Навел</item>
+        <item>Вашингтон Навел</item>
+        <item>Навел Лате</item>
+    </string-array>
+
+    <string-array name="second_tangerines">
+        <item>Клементин</item>
+        <item>Муркотт</item>
+        <item>Надоркотт</item>
+        <item>Уншиу</item>
+        <item>Шива-микан</item>
+    </string-array>
 </resources>
