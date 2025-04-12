@@ -13,8 +13,13 @@
             android:theme="@style/Theme.Pract6"
             tools:targetApi="31">
         <activity
+                android:name=".SecondActivity"
+                android:exported="false"
+                android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar" />
+        <activity
                 android:name=".MainActivity"
-                android:exported="true">
+                android:exported="true"
+                android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
