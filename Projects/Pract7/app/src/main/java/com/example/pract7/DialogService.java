@@ -26,9 +26,9 @@ public class DialogService extends Service
     }
 
     @Override
-    public void onCreate()
+    public IBinder onBind(Intent intent)
     {
-        super.onCreate();
+        return binder;
     }
 
     public void showAlert(Context parentContext,
@@ -57,11 +57,5 @@ public class DialogService extends Service
                            DialogInterface.OnClickListener onNegative)
     {
         new CustomDialog(onPositive, onNegative).show(fragmentManager, "custom");
-    }
-
-    @Override
-    public IBinder onBind(Intent intent)
-    {
-        return binder;
     }
 }
