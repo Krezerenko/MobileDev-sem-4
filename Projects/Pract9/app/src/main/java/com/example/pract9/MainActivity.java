@@ -2,6 +2,7 @@ package com.example.pract9;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.PersistableBundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
@@ -62,7 +64,9 @@ public class MainActivity extends AppCompatActivity
 
     private void createFile(String fileName, byte[] contents)
     {
-        try (FileOutputStream out = MainActivity.this.openFileOutput(fileName, MODE_PRIVATE))
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File file = new File(dir, fileName);
+        try (FileOutputStream out = new FileOutputStream(file))
         {
             out.write(contents);
         }
@@ -78,7 +82,18 @@ public class MainActivity extends AppCompatActivity
 
     private String readFile(String fileName)
     {
-        try (FileInputStream in = MainActivity.this.openFileInput(fileName))
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File file = new File(dir, fileName);
+        if (!file.exists())
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder
+                    .setTitle("Файл не найден")
+                    .setPositiveButton("Ок", (dialog, which) -> { })
+                    .show();
+            return "";
+        }
+        try (FileInputStream in = new FileInputStream(file))
         {
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(in, StandardCharsets.UTF_8));
@@ -97,17 +112,20 @@ public class MainActivity extends AppCompatActivity
 
     private void deleteFileAlert(String fileName)
     {
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File file = new File(dir, fileName);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder
                 .setTitle("Вы точно хотите удалить файл " + fileName + "?")
-                .setPositiveButton("Да", (dialog, which) -> deleteFile(fileName))
+                .setPositiveButton("Да", (dialog, which) -> file.delete())
                 .setNegativeButton("Отмена", (dialog, which) -> { })
                 .show();
     }
 
     private void appendToFile(String fileName, byte[] contents)
     {
-        File file = MainActivity.this.getFileStreamPath(fileName);
+        File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
+        File file = new File(dir, fileName);
         if (!file.exists())
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -117,8 +135,7 @@ public class MainActivity extends AppCompatActivity
                     .show();
             return;
         }
-        try (FileOutputStream out = MainActivity.this.openFileOutput(fileName,
-                MODE_PRIVATE | MODE_APPEND))
+        try (FileOutputStream out = new FileOutputStream(file))
         {
             out.write(contents);
         }
