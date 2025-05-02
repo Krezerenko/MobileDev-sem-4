@@ -1,5 +1,6 @@
 package com.example.pract9;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.widget.Button;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder
                     .setTitle("Не удалось создать файл")
+                    .setPositiveButton("Ок", (dialog, which) -> { })
                     .show();
         }
     }
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder
                     .setTitle("Не удалось прочитать файл")
+                    .setPositiveButton("Ок", (dialog, which) -> { })
                     .show();
             return "";
         }
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         builder
                 .setTitle("Вы точно хотите удалить файл " + fileName + "?")
                 .setPositiveButton("Да", (dialog, which) -> deleteFile(fileName))
+                .setNegativeButton("Отмена", (dialog, which) -> { })
                 .show();
     }
 
@@ -109,6 +113,7 @@ public class MainActivity extends AppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder
                     .setTitle("Файл не найден")
+                    .setPositiveButton("Ок", (dialog, which) -> { })
                     .show();
             return;
         }
@@ -122,13 +127,15 @@ public class MainActivity extends AppCompatActivity
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder
                     .setTitle("Не удалось изменить файл")
+                    .setPositiveButton("Ок", (dialog, which) -> { })
                     .show();
         }
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState)
+    public void onSaveInstanceState(@NonNull Bundle outState)
     {
+        super.onSaveInstanceState(outState);
         TextView textFileContents = findViewById(R.id.text_main_contents);
         outState.putString("ARGUMENT_TEXT_FILE_CONTENTS", textFileContents.getText().toString());
         EditText editFileName = findViewById(R.id.edit_main_name);
@@ -140,6 +147,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState)
     {
+        super.onRestoreInstanceState(savedInstanceState);
         TextView textFileContents = findViewById(R.id.text_main_contents);
         textFileContents.setText(savedInstanceState.getString("ARGUMENT_TEXT_FILE_CONTENTS"));
         EditText editFileName = findViewById(R.id.edit_main_name);
