@@ -10,22 +10,28 @@
         tools:context=".MainActivity">
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Имя" />
+            android:id="@+id/edit_main_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Имя" />
     <EditText
+            android:id="@+id/edit_main_surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Фамилия" />
     <EditText
+            android:id="@+id/edit_main_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Группа" />
     <EditText
+            android:id="@+id/edit_main_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Возраст" />
     <Button
+            android:id="@+id/button_main_write"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Записать данные"/>
