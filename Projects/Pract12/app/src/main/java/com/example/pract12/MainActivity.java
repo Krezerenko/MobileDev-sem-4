@@ -1,18 +1,24 @@
 package com.example.pract12;
 
+import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
+
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.gson.Gson;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -58,6 +64,9 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(this, "Не удалось записать данные в файл",
                         Toast.LENGTH_SHORT).show();
             }
+            File file = getFileStreamPath("student");
+            Uri uri = FileProvider.getUriForFile(this, "com.example.fileprovider", file);
+            grantUriPermission("com.example.pract12_2", uri, FLAG_GRANT_READ_URI_PERMISSION);
         });
     }
 }

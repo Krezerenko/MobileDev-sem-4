@@ -13,22 +13,26 @@
             android:id="@+id/edit_main_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:hint="Имя" />
     <EditText
             android:id="@+id/edit_main_surname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:hint="Фамилия" />
     <EditText
             android:id="@+id/edit_main_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:hint="Группа" />
     <EditText
             android:id="@+id/edit_main_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:gravity="center"
             android:hint="Возраст" />
     <Button
             android:id="@+id/button_main_write"
